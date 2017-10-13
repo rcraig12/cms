@@ -6,11 +6,7 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
 /*use RCS\CMS\Traits\Seedable;*/
-<<<<<<< HEAD
 use RCS\CMS\CMSServiceProvider;
-=======
-use RCS\CMS\LaravelCMSServiceProvider;
->>>>>>> 3862811a4a79bdd036b8bd60b61d3523efcafbf2
 class InstallCommand extends Command
 {
     use Seedable;
