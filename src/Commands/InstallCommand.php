@@ -6,7 +6,11 @@ use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
 /*use RCS\CMS\Traits\Seedable;*/
+<<<<<<< HEAD
 use RCS\CMS\CMSServiceProvider;
+=======
+use RCS\CMS\LaravelCMSServiceProvider;
+>>>>>>> 3862811a4a79bdd036b8bd60b61d3523efcafbf2
 class InstallCommand extends Command
 {
     use Seedable;
@@ -57,7 +61,11 @@ class InstallCommand extends Command
         /*$this->info('Setting up the hooks');
         $this->call('hook:setup');*/
         $this->info('Publishing the CMS assets, database, language, and config files');
+<<<<<<< HEAD
         $this->call('vendor:publish', ['--provider' => CMSServiceProvider::class]);
+=======
+        $this->call('vendor:publish', ['--provider' => LaravelCMSServiceProvider::class]);
+>>>>>>> 3862811a4a79bdd036b8bd60b61d3523efcafbf2
         /*$this->call('vendor:publish', ['--provider' => ImageServiceProviderLaravel5::class]);*/
         $this->info('Migrating the database tables into your application');
         $this->call('migrate');
@@ -76,7 +84,11 @@ class InstallCommand extends Command
         $composer = $this->findComposer();
         $process = new Process($composer.' dump-autoload');
         $process->setWorkingDirectory(base_path())->run();
+<<<<<<< HEAD
         $this->info('Adding CMS routes to routes/web.php');
+=======
+        $this->info('Adding Voyager routes to routes/web.php');
+>>>>>>> 3862811a4a79bdd036b8bd60b61d3523efcafbf2
         $routes_contents = $filesystem->get(base_path('routes/web.php'));
         if (false === strpos($routes_contents, 'CMS::routes()')) {
             $filesystem->append(
@@ -90,7 +102,11 @@ class InstallCommand extends Command
         /*$this->info('Seeding data into the database');
         $this->seed('LaravelCMSDatabaseSeeder');*/
         if ($this->option('with-dummy')) {
+<<<<<<< HEAD
             $this->seed('CMSDummyDatabaseSeeder');
+=======
+            $this->seed('LaravelCMSDummyDatabaseSeeder');
+>>>>>>> 3862811a4a79bdd036b8bd60b61d3523efcafbf2
         }
         $this->info('Adding the storage symlink to your public folder');
         $this->call('storage:link');
