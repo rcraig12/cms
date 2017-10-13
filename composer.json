@@ -1,0 +1,41 @@
+{
+    "name": "rcs/cms",
+    "description": "A Laravel CMS Package to make your life easier and steer your project in the right direction",
+    "keywords": ["laravel", "admin", "panel", "cms"],
+    "license": "MIT",
+    "homepage": "https://github.com/rcraig12/cms",
+    "support": {
+        "issues": "https://github.com/rcraig12/cms/issues",
+        "source": "https://github.com/rcraig12/cms"
+    },
+    "authors": [
+        {
+            "name": "Robert Craig",
+            "email": "rcraig12@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "require-dev": {
+        "laravel/framework": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RCS\\CMS\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RCS\\CMS\\Tests\\": "tests/"
+      }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RCS\\CMS\\CMSServiceProvider"
+            ]
+        }
+    }
+}
