@@ -155,14 +155,14 @@ class CMS
     public function image($file, $default = '')
     {
         if (!empty($file)) {
-            return Storage::disk(config('voyager.storage.disk'))->url($file);
+            return Storage::disk(config('cms.storage.disk'))->url($file);
         }
         return $default;
     }
 
     public function routes()
     {
-        require __DIR__.'routes/routes.php';
+        require __DIR__.'/Routes/routes.php';
     }
 
     public function can($permission)
@@ -210,7 +210,7 @@ class CMS
     public function alerts()
     {
         if (!$this->alertsCollected) {
-            event('voyager.alerts.collecting');
+            event('cms.alerts.collecting');
             $this->alertsCollected = true;
         }
         return $this->alerts;
@@ -228,7 +228,7 @@ class CMS
             );
             // Loop through all the packages and get the version of voyager
             foreach ($file->packages as $package) {
-                if ($package->name == 'tcg/voyager') {
+                if ($package->name == 'rcs/cms') {
                     $this->version = $package->version;
                     break;
                 }
@@ -243,7 +243,7 @@ class CMS
      */
     public function translatable($model)
     {
-        if (!config('voyager.multilingual.enabled')) {
+        if (!config('cms.multilingual.enabled')) {
             return false;
         }
         if (is_string($model)) {

@@ -21,7 +21,10 @@ class CMSServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadViewsFrom(__DIR__.'/Views', 'cms');
+        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->mergeConfigFrom(__DIR__.'/Config/CMS.php', 'cms');
+        
     }
 
     /**
@@ -33,7 +36,7 @@ class CMSServiceProvider extends ServiceProvider
     {
         $loader = AliasLoader::getInstance();
         $loader->alias('CMS', CMSFacade::class);
-        $this->app->singleton('CMS', function () {
+        $this->app->singleton('cms', function () {
             return new CMS();
         });
 
