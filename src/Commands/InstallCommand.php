@@ -86,7 +86,7 @@ class InstallCommand extends Command
             );
         }
         \Route::group(['prefix' => 'admin'], function () {
-            CMS::routes();
+            \CMS::routes();
         });
         /*$this->info('Seeding data into the database');
         $this->seed('CMSDatabaseSeeder');*/
